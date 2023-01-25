@@ -54,4 +54,6 @@ def main():
   driver.find_element(by='xpath', value='//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div[1]/div/div[3]/div/div/section/div/div/div[1]/div/div/div/article/div/div/div/div[2]/div[1]').click()
   time.sleep(10)
 
+  print(f"Successfully Posted! \nAccount: {twitter_username} \nTweet: {twitter_tweet}")
+
 print(main())

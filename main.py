@@ -35,7 +35,7 @@ def main():
 
   # ? Type in password
   driver.find_element(by="name", value="password").send_keys(twitter_password + Keys.RETURN)
-  time.sleep(8)
+  time.sleep(5)
 
   # ? Type tweet
   driver.find_element(by=By.CLASS_NAME, value='public-DraftStyleDefault-ltr').send_keys(twitter_tweet)
@@ -45,5 +45,13 @@ def main():
   driver.find_element(by='xpath', value='//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[3]/div/div[2]/div[1]/div/div/div/div[2]/div[3]/div/div/div[2]/div[3]/div/span/span').click()
 
   # ? Go to twitter profile to view tweet
+  driver.find_element(by='xpath', value='//*[@id="react-root"]/div/div/div[2]/header/div/div/div/div[1]/div[2]/nav/a[7]/div').click()
+  time.sleep(4)
+  driver.execute_script("window.scrollTo(0, 260)")
+  time.sleep(4)
+
+  # ? Click on tweet to view
+  driver.find_element(by='xpath', value='//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div[1]/div/div[3]/div/div/section/div/div/div[1]/div/div/div/article/div/div/div/div[2]/div[1]').click()
+  time.sleep(10)
 
 print(main())

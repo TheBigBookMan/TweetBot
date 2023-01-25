@@ -18,3 +18,32 @@ def get_driver():
   driver = webdriver.Chrome(service=service, options=options)
   driver.get('https://twitter.com/i/flow/login')
   return driver
+
+def main():
+  # ? Get user input
+  twitter_username = input("What is your twitter username: ")
+  twitter_password = input("What is your twitter password: ")
+  twitter_tweet = input("What would you like to tweet about: ")
+
+  driver= get_driver()
+  time.sleep(6)
+
+  # ? Type in username
+  driver.find_element(by="name", value="text").click()
+  driver.find_element(by="name", value="text").send_keys(twitter_username + Keys.RETURN)
+  time.sleep(2)
+
+  # ? Type in password
+  driver.find_element(by="name", value="password").send_keys(twitter_password + Keys.RETURN)
+  time.sleep(8)
+
+  # ? Type tweet
+  driver.find_element(by=By.CLASS_NAME, value='public-DraftStyleDefault-ltr').send_keys(twitter_tweet)
+  time.sleep(2)
+
+  # ? Click post tweet
+  driver.find_element(by='xpath', value='//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[3]/div/div[2]/div[1]/div/div/div/div[2]/div[3]/div/div/div[2]/div[3]/div/span/span').click()
+
+  # ? Go to twitter profile to view tweet
+
+print(main())
